@@ -3,7 +3,7 @@ const cep = document.querySelector('#cep')
 const showdata = (result)=>{
     for(const campo in result){
         if(document.querySelector('#' + campo)){
-            document.querySelector('#'+campo).value=result[campo]
+            document.querySelector('#'+ campo).value=result[campo]
 
         }
     }
@@ -22,6 +22,6 @@ cep.addEventListener('blur',(e)=>{
     .then(response=>{response.json()
         .then( data => showdata(data))
     })
-    .cache( e =>  console.log('ERRO : '+ e,message))
+    .catch( e =>  console.log('ERRO : '+ e,message))
     
 })
